@@ -1,16 +1,13 @@
-image: node:latest
-
 stages:
   - build
   - test
   - deploy
 
-before_script:
-  - npm install
-
 deploy-production:
   stage: deploy
   script:
+    - cd /home/admin/Devitai
+    - git pull
     - npm run export
   only:
     - master
