@@ -6,7 +6,6 @@ deploy-production:
   script:
     - cd /home/admin/Devitai
     - whoami
-    - pwd
     - git pull
     - npm run export
   only:
