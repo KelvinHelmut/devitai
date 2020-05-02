@@ -5,7 +5,7 @@ stages:
   - test
   - deploy
 
-before_scrit:
+before_script:
   - npm install
 
 deploy-production:
