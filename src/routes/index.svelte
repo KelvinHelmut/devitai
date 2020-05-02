@@ -33,7 +33,7 @@
 </style>
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Devitai</title>
 </svelte:head>
 
 <h1>Devitai</h1>

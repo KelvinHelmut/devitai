@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>About</title>
+	<title>About | Devitai</title>
 </svelte:head>
 
 <h1>About us</h1>
