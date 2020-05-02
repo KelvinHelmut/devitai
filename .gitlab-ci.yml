@@ -1,0 +1,16 @@
+image: node:12.x
+
+stages:
+  - build
+  - test
+  - deploy
+
+before_scrit:
+  - npm install
+
+deploy-production:
+  stage: deploy
+  script:
+    - npm run export
+  only:
+    - master
