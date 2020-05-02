@@ -40,7 +40,7 @@
 
 <figure>
 	<img alt='DevOps' src='devops.png'>
-	<figcaption>En proceso!</figcaption>
+	<figcaption>In Process!</figcaption>
 </figure>
 
 <p><strong>Develop(er) | Information Tecnology | Artificial intelligence</strong></p>
