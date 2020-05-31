@@ -43,4 +43,4 @@
 	<figcaption>In Process!</figcaption>
 </figure>
 
-<p><strong>Develop(er) | Information Tecnology | Artificial intelligence</strong></p>
+<p><strong>Develop | Information Tecnology | Artificial intelligence</strong></p>
