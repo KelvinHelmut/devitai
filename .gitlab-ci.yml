@@ -6,6 +6,7 @@ deploy-production:
   script:
     - cd /home/admin/Devitai
     - git pull
+    - npm install
     - npm run export
   only:
     - master
