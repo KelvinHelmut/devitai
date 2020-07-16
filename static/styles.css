@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+code {
+	font-family: menlo, inconsolata, monospace;
+	font-size: calc(1em - 2px);
+	color: #555;
+	background-color: #f0f0f0;
+	padding: 0.2em 0.4em;
+	border-radius: 2px;
+}
+
+.bg-devitai {
+	background: #fff;  /* fallback for old browsers */
+	background:
+		-webkit-linear-gradient(to left bottom, rgba(255, 0, 0, .1), rgba(255, 0, 0, 0) 40%),
+		-webkit-linear-gradient(to right top, rgba(0, 255, 0, .1), rgba(0, 255, 0, 0) 40%),
+		-webkit-linear-gradient(to left top, rgba(0, 0, 255, .1), rgba(0, 0, 255, 0) 40%),
+		-webkit-linear-gradient(to right bottom, rgba(255, 255, 0, .2), rgba(255, 255, 0, 0) 40%);
+	background:
+		linear-gradient(to left bottom, rgba(255, 0, 0, .1), rgba(255, 0, 0, 0) 40%),
+		linear-gradient(to right top, rgba(0, 255, 0, .1), rgba(0, 255, 0, 0) 40%),
+		linear-gradient(to left top, rgba(0, 0, 255, .1), rgba(0, 0, 255, 0) 40%),
+		linear-gradient(to right bottom, rgba(255, 255, 0, .2), rgba(255, 255, 0, 0) 40%);
+}
