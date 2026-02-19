@@ -1,0 +1,214 @@
+---
+import { useTranslations, getLangFromUrl } from "../../i18n/utils";
+import { ArrowRight, Bot, Code2, Layers, Sparkles } from "@lucide/astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section
+    class="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-32 pb-20"
+>
+    <!-- Mobile/Tablet Background Atmosphere (Option 2 Symmetrical) -->
+    <div class="absolute inset-0 lg:hidden pointer-events-none select-none z-0">
+        <!-- Blue Glow Right -->
+        <div
+            class="absolute top-[20%] -right-16 w-80 h-80 bg-blue-600/15 blur-[100px] rounded-full animate-pulse"
+        >
+        </div>
+        <!-- Indigo Glow Left -->
+        <div
+            class="absolute bottom-[20%] -left-16 w-80 h-80 bg-indigo-600/15 blur-[100px] rounded-full animate-pulse"
+            style="animation-delay: -2s;"
+        >
+        </div>
+
+        <!-- Orbital Rings Right -->
+        <div
+            class="absolute top-[25%] -right-8 w-40 h-40 border border-blue-500/20 rounded-full animate-[spin_15s_linear_infinite] flex items-center justify-center"
+        >
+            <div
+                class="w-2 h-2 bg-blue-500 rounded-full shadow-[0_0_15px_rgba(59,130,246,1)]"
+            >
+            </div>
+        </div>
+
+        <!-- Orbital Rings Left -->
+        <div
+            class="absolute bottom-[25%] -left-8 w-40 h-40 border border-indigo-500/20 rounded-full animate-[spin_20s_linear_infinite_reverse] flex items-center justify-center"
+        >
+            <div
+                class="w-2 h-2 bg-indigo-500 rounded-full shadow-[0_0_15px_rgba(99,102,241,1)]"
+            >
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Left side: Content -->
+            <div
+                class="lg:col-span-8 flex flex-col items-center lg:items-start text-center lg:text-left"
+            >
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/50 dark:bg-blue-500/10 border border-blue-500/20 backdrop-blur-md mb-8 animate-fade-in-up"
+                >
+                    <Sparkles size={16} class="text-blue-500" />
+                    <span
+                        class="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400"
+                        >{t("hero.badge")}</span
+                    >
+                </div>
+
+                <h1
+                    class="text-6xl md:text-8xl lg:text-[9rem] font-black tracking-[-0.04em] leading-[0.85] mb-10 animate-fade-in-up"
+                    style="animation-delay: 0.1s;"
+                >
+                    <span class="block text-slate-900 dark:text-white"
+                        >DEVITAI</span
+                    >
+                    <span
+                        class="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-400 to-purple-600"
+                        >FORGE.</span
+                    >
+                </h1>
+
+                <p
+                    class="max-w-xl mx-auto lg:mx-0 text-lg md:text-2xl text-slate-600 dark:text-slate-400 mb-12 leading-[1.4] animate-fade-in-up"
+                    style="animation-delay: 0.2s;"
+                >
+                    {t("hero.subtitle")}
+                </p>
+
+                <div
+                    class="flex flex-wrap justify-center lg:justify-start gap-6 items-center animate-fade-in-up"
+                    style="animation-delay: 0.3s;"
+                >
+                    <a
+                        href="#contact"
+                        class="group relative px-10 py-5 rounded-[2rem] bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-lg sm:text-xl hover:scale-[1.02] transition-all shadow-2xl flex items-center gap-3 active:scale-95"
+                    >
+                        {t("hero.cta")}
+                        <div
+                            class="bg-blue-600 rounded-full p-1 group-hover:translate-x-1 transition-transform"
+                        >
+                            <ArrowRight size={20} class="text-white" />
+                        </div>
+                    </a>
+
+                    <div
+                        class="flex -space-x-4 justify-center lg:justify-start opacity-70 hover:opacity-100 transition-opacity"
+                    >
+                        <div
+                            class="w-12 h-12 rounded-full border-4 border-slate-50 dark:border-slate-950 bg-slate-200 dark:bg-slate-800 flex items-center justify-center"
+                        >
+                            <Bot size={20} />
+                        </div>
+                        <div
+                            class="w-12 h-12 rounded-full border-4 border-slate-50 dark:border-slate-950 bg-slate-200 dark:bg-slate-800 flex items-center justify-center"
+                        >
+                            <Code2 size={20} />
+                        </div>
+                        <div
+                            class="w-12 h-12 rounded-full border-4 border-slate-50 dark:border-slate-950 bg-slate-200 dark:bg-slate-800 flex items-center justify-center"
+                        >
+                            <Layers size={20} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right side: Interactive Visual -->
+            <div
+                class="hidden lg:block lg:col-span-4 mt-20 lg:mt-0 animate-fade-in-up"
+                style="animation-delay: 0.4s;"
+            >
+                <div class="relative animate-float">
+                    <div
+                        class="absolute inset-0 bg-blue-500/20 blur-[100px] rounded-full"
+                    >
+                    </div>
+                    <div
+                        class="relative p-8 rounded-[3rem] glass-card shadow-2xl overflow-hidden group"
+                    >
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent"
+                        >
+                        </div>
+
+                        <div
+                            class="relative z-10 font-mono text-sm leading-relaxed space-y-4"
+                        >
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500/50">
+                                </div>
+                                <div
+                                    class="w-3 h-3 rounded-full bg-yellow-500/50"
+                                >
+                                </div>
+                                <div
+                                    class="w-3 h-3 rounded-full bg-green-500/50"
+                                >
+                                </div>
+                            </div>
+                            <div class="text-blue-500">
+                                {t("hero.code.class")}
+                            </div>
+                            <div class="pl-4 text-slate-400">
+                                {t("hero.code.init")}
+                            </div>
+                            <div class="pl-8 text-slate-400">
+                                {t("hero.code.model")}
+                            </div>
+                            <div class="pl-8 text-slate-400">
+                                {t("hero.code.logic")}
+                            </div>
+                            <div class="pl-4 text-slate-500">
+                                {t("hero.code.execute")}
+                            </div>
+                            <div
+                                class="pl-8 bg-blue-500/10 text-blue-400 py-1 rounded"
+                            >
+                                {t("hero.code.return")}
+                            </div>
+
+                            <div
+                                class="pt-6 flex justify-between items-center opacity-50"
+                            >
+                                <span class="text-xs uppercase tracking-widest"
+                                    >v2.0.4-dev</span
+                                >
+                                <span
+                                    class="h-1 w-12 bg-blue-500/50 rounded-full animate-pulse"
+                                ></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Decorative bits -->
+                    <div
+                        class="absolute -top-6 -right-6 w-12 h-12 bg-indigo-500 rounded-2xl rotate-12 shadow-xl flex items-center justify-center text-white"
+                    >
+                        <Sparkles size={24} />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+    .animate-fade-in-up {
+        animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+</style>
