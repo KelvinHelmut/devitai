@@ -40,6 +40,21 @@ const translatePath = useTranslatedPath(lang);
             rel="stylesheet"
         />
 
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-172814200-1"
+        ></script>
+        <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "UA-172814200-1");
+        </script>
+
         <!-- Theme Blocking Script -->
         <script is:inline>
             const theme = (() => {
