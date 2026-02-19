@@ -51,18 +51,16 @@ const services = [
 
 <section id="services" class="py-40 relative">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
-      <div class="max-w-2xl">
-        <h2 class="text-xs font-bold uppercase tracking-[0.4em] text-blue-600 dark:text-blue-500 mb-6 font-mono">{t('services.badge')}</h2>
-        <h3 class="text-4xl md:text-6xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
+    <div class="text-center mb-20">
+      <div class="flex flex-col items-center">
+        <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-blue-600 dark:text-blue-500 mb-6 font-mono border border-blue-500/20 px-3 py-1 rounded-full">{t('services.badge')}</h2>
+        <h3 class="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white leading-[0.9] mb-8">
           {t('services.title')}
         </h3>
-
-
-      </div>
-      <div class="flex items-center gap-4 text-slate-400 font-mono text-sm border-t border-slate-200 dark:border-slate-800 pt-6 md:pt-0 md:border-t-0">
-        <Binary size={18} />
-        <span>{t('services.year')}</span>
+        <div class="flex items-center gap-3 text-slate-400 font-mono text-[10px] uppercase tracking-[0.2em] opacity-60">
+          <Binary size={14} />
+          <span>{t('services.year')}</span>
+        </div>
       </div>
     </div>
 
