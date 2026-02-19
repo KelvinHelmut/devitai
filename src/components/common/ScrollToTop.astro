@@ -1,0 +1,49 @@
+---
+import { ArrowUp } from "@lucide/astro";
+---
+
+<button
+    id="scroll-to-top"
+    class="fixed bottom-8 right-8 z-[100] p-4 rounded-2xl bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl border border-white/20 dark:border-white/10 text-slate-900 dark:text-white shadow-2xl translate-y-24 opacity-0 invisible transition-all duration-500 hover:scale-110 active:scale-95 group overflow-hidden"
+    aria-label="Scroll to top"
+>
+    <!-- Hover Gradient -->
+    <div
+        class="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+    >
+    </div>
+
+    <ArrowUp
+        size={24}
+        class="relative z-10 group-hover:-translate-y-1 transition-transform duration-300"
+    />
+</button>
+
+<script is:inline>
+    const scrollBtn = document.getElementById("scroll-to-top");
+
+    const toggleScrollBtn = () => {
+        if (window.scrollY > 500) {
+            scrollBtn?.classList.remove(
+                "translate-y-24",
+                "opacity-0",
+                "invisible"
+            );
+        } else {
+            scrollBtn?.classList.add(
+                "translate-y-24",
+                "opacity-0",
+                "invisible"
+            );
+        }
+    };
+
+    window.addEventListener("scroll", toggleScrollBtn);
+
+    scrollBtn?.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    });
+</script>
