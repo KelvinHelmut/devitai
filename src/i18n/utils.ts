@@ -14,6 +14,7 @@ export function useTranslations(lang: keyof typeof ui) {
 
 export function useTranslatedPath(lang: keyof typeof ui) {
     return function translatePath(path: string, l: string = lang) {
-        return `/${l}${path.startsWith('/') ? path : '/' + path}`;
+        const prefix = l === defaultLang ? '' : `/${l}`;
+        return `${prefix}${path.startsWith('/') ? path : '/' + path}`;
     }
 }

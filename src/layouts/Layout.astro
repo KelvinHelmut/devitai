@@ -1,5 +1,9 @@
 ---
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import {
+    getLangFromUrl,
+    useTranslations,
+    useTranslatedPath,
+} from "../i18n/utils";
 import Logo from "../components/common/Logo.astro";
 import ThemeSwitcher from "../components/common/ThemeSwitcher.astro";
 import LanguageSwitcher from "../components/common/LanguageSwitcher.astro";
@@ -17,6 +21,7 @@ const {
 } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <!DOCTYPE html>
@@ -86,7 +91,7 @@ const t = useTranslations(lang);
                 class="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between"
             >
                 <a
-                    href={`/${lang}/`}
+                    href={translatePath("/")}
                     class="hover:opacity-80 transition-opacity flex-shrink-0"
                 >
                     <Logo class="scale-90 md:scale-100 origin-left" />
