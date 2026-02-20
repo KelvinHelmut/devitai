@@ -217,7 +217,7 @@ const translatePath = useTranslatedPath(lang);
         <!-- Mobile Navigation Overlay -->
         <div
             id="mobile-menu"
-            class="fixed inset-0 z-[200] bg-slate-50 dark:bg-[#020617] flex-col items-center justify-between py-16 px-8 hidden md:hidden opacity-0 translate-y-8 transition-all duration-500 overflow-y-auto"
+            class="fixed inset-0 z-[200] backdrop-blur-2xl bg-white/60 dark:bg-slate-950/60 flex-col items-center justify-between py-16 px-8 hidden md:hidden opacity-0 translate-y-8 transition-all duration-500 overflow-y-auto"
         >
             <!-- Close button inside overlay -->
             <button
@@ -257,16 +257,10 @@ const translatePath = useTranslatedPath(lang);
             >
                 <div class="text-center">
                     <p
-                        class="text-slate-400 font-mono text-[9px] uppercase tracking-[0.4em] mb-1"
+                        class="text-slate-400 font-mono text-[9px] uppercase tracking-[0.4em]"
                     >
                         Devitai &copy; {new Date().getFullYear()}
                     </p>
-                    <a
-                        href="mailto:info@devitai.com"
-                        class="text-slate-400 hover:text-white transition-colors"
-                    >
-                        info@devitai.com
-                    </a>
                     <p
                         class="text-slate-500 text-[9px] uppercase tracking-[0.2em]"
                     >
