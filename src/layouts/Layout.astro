@@ -12,7 +12,7 @@ import { Menu, X, Mail, MessageSquare } from "@lucide/astro";
 import "../styles/global.css";
 
 interface Props {
-    title: string;
+    title?: string;
     description?: string;
 }
 
@@ -31,9 +31,56 @@ const translatePath = useTranslatedPath(lang);
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
+        <link rel="manifest" href="/site.webmanifest" />
         <meta name="generator" content={Astro.generator} />
-        <meta name="description" content={description} />
-        <title>{title}</title>
+
+        <!-- SEO Labels -->
+        <title>{title || t("site.title")}</title>
+        <meta
+            name="description"
+            content={description || t("site.description")}
+        />
+        <link
+            rel="canonical"
+            href={new URL(
+                Astro.url.pathname,
+                Astro.site || "https://devitai.com"
+            )}
+        />
+
+        <!-- I18n SEO -->
+        <link rel="alternate" hreflang="es" href="https://devitai.com/" />
+        <link rel="alternate" hreflang="en" href="https://devitai.com/en/" />
+        <link
+            rel="alternate"
+            hreflang="x-default"
+            href="https://devitai.com/"
+        />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={Astro.url} />
+        <meta property="og:title" content={title || t("site.title")} />
+        <meta
+            property="og:description"
+            content={description || t("site.description")}
+        />
+        <meta property="og:image" content="https://devitai.com/og-image.png" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={Astro.url} />
+        <meta property="twitter:title" content={title || t("site.title")} />
+        <meta
+            property="twitter:description"
+            content={description || t("site.description")}
+        />
+        <meta
+            property="twitter:image"
+            content="https://devitai.com/og-image.png"
+        />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link

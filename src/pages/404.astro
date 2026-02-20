@@ -1,0 +1,67 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ArrowLeft, Ghost } from "@lucide/astro";
+import {
+    getLangFromUrl,
+    useTranslations,
+    useTranslatedPath,
+} from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+---
+
+<Layout title="404 - Page Not Found | Devitai">
+    <section class="min-h-[80vh] flex items-center justify-center pt-32 pb-20">
+        <div class="max-w-2xl mx-auto px-6 text-center reveal">
+            <div
+                class="inline-flex items-center justify-center w-24 h-24 rounded-[2.5rem] bg-blue-500/10 border border-blue-500/20 mb-8 animate-float"
+            >
+                <Ghost size={48} class="text-blue-500" />
+            </div>
+
+            <h1
+                class="text-7xl md:text-9xl font-black tracking-tighter text-slate-900 dark:text-white mb-6"
+            >
+                404
+            </h1>
+
+            <p
+                class="text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-12 leading-relaxed"
+            >
+                {
+                    lang === "es"
+                        ? "Vaya... parece que esta ruta aún no ha sido forjada por nuestra IA."
+                        : "Oops... it seems this path hasn't been forged by our AI yet."
+                }
+            </p>
+
+            <a
+                href={translatePath("/")}
+                class="inline-flex items-center gap-3 px-10 py-5 rounded-[2rem] bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-lg hover:scale-[1.05] transition-all shadow-2xl active:scale-95 group"
+            >
+                <ArrowLeft
+                    size={20}
+                    class="group-hover:-translate-x-1 transition-transform"
+                />
+                {lang === "es" ? "Volver al inicio" : "Back to home"}
+            </a>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+</style>

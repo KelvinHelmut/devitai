@@ -242,23 +242,41 @@ const t = useTranslations(lang);
     </div>
 </section>
 
-<script is:inline>
-    const form = document.getElementById("n8n-contact-form");
-    const nameInput = document.getElementById("name-input");
-    const contactInput = document.getElementById("contact-input");
-    const submitBtn = document.getElementById("submit-btn");
+<script>
+    const form = document.getElementById(
+        "n8n-contact-form"
+    ) as HTMLFormElement | null;
+    const nameInput = document.getElementById(
+        "name-input"
+    ) as HTMLInputElement | null;
+    const contactInput = document.getElementById(
+        "contact-input"
+    ) as HTMLInputElement | null;
+    const submitBtn = document.getElementById(
+        "submit-btn"
+    ) as HTMLButtonElement | null;
     const btnText = document.getElementById("btn-text");
     const btnIcon = document.getElementById("btn-icon");
     const btnLoader = document.getElementById("btn-loader");
     const btnSuccessIcon = document.getElementById("btn-success-icon");
     const successMsg = document.getElementById("success-message");
 
-    form?.addEventListener("submit", async (e) => {
+    form?.addEventListener("submit", async (e: SubmitEvent) => {
         e.preventDefault();
 
         const nameValue = nameInput?.value;
         const contactValue = contactInput?.value;
-        if (!nameValue || !contactValue) return;
+        if (
+            !nameValue ||
+            !contactValue ||
+            !submitBtn ||
+            !btnText ||
+            !btnIcon ||
+            !btnLoader ||
+            !btnSuccessIcon ||
+            !successMsg
+        )
+            return;
 
         // Visual State: Loading
         submitBtn.disabled = true;
