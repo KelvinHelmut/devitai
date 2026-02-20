@@ -26,7 +26,7 @@ const t = useTranslations(lang);
     </div>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="text-center mb-20">
+        <div class="text-center mb-20 reveal">
             <div
                 class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 text-blue-400 text-[10px] font-black tracking-widest uppercase mb-6"
             >
@@ -47,7 +47,7 @@ const t = useTranslations(lang);
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <!-- Left: n8n Automated Form -->
-            <div class="lg:col-span-7">
+            <div class="lg:col-span-7 reveal reveal-delay-1">
                 <div
                     class="relative group p-8 md:p-12 rounded-[2.5rem] border border-slate-200 dark:border-white/5 bg-white dark:bg-slate-900/40 backdrop-blur-xl shadow-2xl overflow-hidden"
                 >
@@ -99,7 +99,7 @@ const t = useTranslations(lang);
                                     <button
                                         type="submit"
                                         id="submit-btn"
-                                        class="sm:absolute relative sm:right-2 sm:top-2 sm:bottom-2 px-6 py-4 sm:py-0 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm uppercase tracking-widest hover:scale-[1.02] sm:hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2"
+                                        class="sm:absolute relative sm:right-2 sm:top-2 sm:bottom-2 px-6 py-4 sm:py-0 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm uppercase tracking-widest hover:scale-[1.02] sm:hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 overflow-hidden"
                                     >
                                         <span id="btn-text"
                                             >{t("contact.form.submit")}</span
@@ -109,6 +109,11 @@ const t = useTranslations(lang);
                                             size={16}
                                             id="btn-loader"
                                             class="hidden animate-spin"
+                                        />
+                                        <CheckCircle2
+                                            size={16}
+                                            id="btn-success-icon"
+                                            class="hidden text-emerald-500"
                                         />
                                     </button>
                                 </div>
@@ -146,7 +151,9 @@ const t = useTranslations(lang);
             </div>
 
             <!-- Right: Direct Channels -->
-            <div class="lg:col-span-5 flex flex-col h-full gap-6">
+            <div
+                class="lg:col-span-5 flex flex-col h-full gap-6 reveal reveal-delay-2"
+            >
                 <!-- Cal.com Card -->
                 <a
                     href="https://cal.com/kelvin-helmut/15min"
@@ -243,6 +250,7 @@ const t = useTranslations(lang);
     const btnText = document.getElementById("btn-text");
     const btnIcon = document.getElementById("btn-icon");
     const btnLoader = document.getElementById("btn-loader");
+    const btnSuccessIcon = document.getElementById("btn-success-icon");
     const successMsg = document.getElementById("success-message");
 
     form?.addEventListener("submit", async (e) => {
@@ -259,36 +267,22 @@ const t = useTranslations(lang);
         btnLoader.classList.remove("hidden");
 
         try {
-            // Reemplaza esta URL con tu Webhook de n8n real
-            const WEBHOOK_URL = "https://n8n.devitai.com/webhook/contact-lead";
-
-            // Simulación de envío (En producción se usa el fetch de abajo comentado)
             await new Promise((resolve) => setTimeout(resolve, 1500));
 
-            /* 
-            const response = await fetch(WEBHOOK_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    name: nameValue,
-                    contact: contactValue,
-                    source: window.location.href,
-                    timestamp: new Date().toISOString()
-                })
-            });
-            */
-
             // Visual State: Success
+            btnLoader.classList.add("hidden");
+            btnSuccessIcon.classList.remove("hidden");
+            btnText.classList.remove("hidden");
+            btnText.textContent = "¡Enviado!";
+
             successMsg.classList.remove("hidden");
-            form.classList.add("opacity-50", "pointer-events-none");
-            submitBtn.style.display = "none";
+            form.classList.add("opacity-60", "pointer-events-none");
 
             if (nameInput) nameInput.value = "";
             if (contactInput) contactInput.value = "";
         } catch (error) {
             console.error("Submission failed:", error);
             alert("Algo falló. Por favor intenta por WhatsApp.");
-        } finally {
             btnLoader.classList.add("hidden");
             btnText.classList.remove("hidden");
             btnIcon.classList.remove("hidden");

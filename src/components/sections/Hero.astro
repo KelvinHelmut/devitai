@@ -9,7 +9,15 @@ const t = useTranslations(lang);
 <section
     class="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-32 pb-20"
 >
-    <!-- Mobile/Tablet Background Atmosphere (Option 2 Symmetrical) -->
+    <!-- Desktop Interactive Spotlight -->
+    <div
+        id="hero-spotlight"
+        class="absolute inset-0 z-0 pointer-events-none opacity-0 transition-opacity duration-1000 lg:block hidden"
+        style="background: radial-gradient(600px circle at var(--x) var(--y), rgba(59, 130, 246, 0.15), transparent 80%);"
+    >
+    </div>
+
+    <!-- Mobile/Tablet Background Atmosphere -->
     <div class="absolute inset-0 lg:hidden pointer-events-none select-none z-0">
         <!-- Blue Glow Right -->
         <div
@@ -212,3 +220,24 @@ const t = useTranslations(lang);
         animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 </style>
+
+<script is:inline>
+    const spotlight = document.getElementById("hero-spotlight");
+    const heroSection = spotlight?.parentElement;
+
+    if (spotlight && heroSection) {
+        heroSection.addEventListener("mousemove", (e) => {
+            const rect = heroSection.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            spotlight.style.setProperty("--x", `${x}px`);
+            spotlight.style.setProperty("--y", `${y}px`);
+            spotlight.style.opacity = "1";
+        });
+
+        heroSection.addEventListener("mouseleave", () => {
+            spotlight.style.opacity = "0";
+        });
+    }
+</script>

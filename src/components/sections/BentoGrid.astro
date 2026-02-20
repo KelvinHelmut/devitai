@@ -51,7 +51,7 @@ const services = [
 
 <section id="services" class="py-40 relative">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-20">
+    <div class="text-center mb-20 reveal">
       <div class="flex flex-col items-center">
         <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-blue-600 dark:text-blue-500 mb-6 font-mono border border-blue-500/20 px-3 py-1 rounded-full">{t('services.badge')}</h2>
         <h3 class="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white leading-[0.9] mb-8">
@@ -68,9 +68,10 @@ const services = [
       {services.map((service, index) => (
         <div 
           class:list={[
-            "group relative p-8 sm:p-10 rounded-[2.5rem] border border-slate-200/60 dark:border-white/5 bg-white dark:bg-slate-900/40 backdrop-blur-sm overflow-hidden flex flex-col hover:border-blue-500/30 transition-all duration-500 min-h-[320px] md:min-h-[350px] lg:min-h-[300px] h-full",
+            "group relative p-8 sm:p-10 rounded-[2.5rem] border border-slate-200/60 dark:border-white/5 bg-white dark:bg-slate-900/40 backdrop-blur-sm overflow-hidden flex flex-col hover:border-blue-500/30 transition-all duration-500 min-h-[320px] md:min-h-[350px] lg:min-h-[300px] h-full reveal",
             service.gridClass
           ]}
+          style={`transition-delay: ${index * 0.1 + 0.2}s`}
         >
           <!-- Background Glow Effect -->
           <div class:list={["absolute top-0 right-0 w-64 h-64 bg-gradient-to-br transition-all duration-700 opacity-0 group-hover:opacity-100 blur-[80px]", service.bg]}></div>

@@ -309,9 +309,74 @@ const translatePath = useTranslatedPath(lang);
             </div>
         </footer>
         <style is:global>
+            /* View Transitions - Circular Theme Toggle */
+            ::view-transition-old(root),
+            ::view-transition-new(root) {
+                animation: none;
+                mix-blend-mode: normal;
+            }
+
+            .dark::view-transition-old(root) {
+                z-index: 1;
+            }
+            .dark::view-transition-new(root) {
+                z-index: 999;
+            }
+
+            ::view-transition-old(root) {
+                z-index: 999;
+            }
+            ::view-transition-new(root) {
+                z-index: 1;
+            }
+
+            /* Main Page Styles */
             body {
                 overflow-x: hidden;
             }
         </style>
+        <style is:global>
+            .reveal {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .reveal.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .reveal-delay-1 {
+                transition-delay: 0.1s;
+            }
+            .reveal-delay-2 {
+                transition-delay: 0.2s;
+            }
+            .reveal-delay-3 {
+                transition-delay: 0.3s;
+            }
+            .reveal-delay-4 {
+                transition-delay: 0.4s;
+            }
+        </style>
+
+        <script is:inline>
+            // Scroll Reveal Observer
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px",
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                    }
+                });
+            }, observerOptions);
+
+            document
+                .querySelectorAll(".reveal")
+                .forEach((el) => observer.observe(el));
+        </script>
     </body>
 </html>
