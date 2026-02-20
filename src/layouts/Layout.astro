@@ -103,10 +103,12 @@ const translatePath = useTranslatedPath(lang);
                 return "light";
             })();
 
-            if (theme === "light") {
-                document.documentElement.classList.remove("dark");
-            } else {
+            if (theme === "dark") {
                 document.documentElement.classList.add("dark");
+                document.documentElement.style.colorScheme = "dark";
+            } else {
+                document.documentElement.classList.remove("dark");
+                document.documentElement.style.colorScheme = "light";
             }
             window.localStorage.setItem("theme", theme);
         </script>
