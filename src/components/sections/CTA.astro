@@ -1,0 +1,29 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="contact" class="py-32 relative z-10">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="relative p-12 md:p-24 overflow-hidden border border-slate-900/20 dark:border-white/20 bg-slate-50 dark:bg-base text-center reveal">
+            <!-- Glowing gradient background -->
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/20 opacity-50 dark:opacity-50"></div>
+            
+            <div class="relative z-10">
+                <h2 class="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter">{t('new.cta.title')}</h2>
+                <p class="text-slate-700 dark:text-slate-300 text-lg md:text-xl font-light max-w-2xl mx-auto mb-10">
+                    {t('new.cta.desc')}
+                </p>
+                <a href="mailto:info@devitai.com" class="inline-flex items-center justify-center px-10 py-5 bg-slate-900 dark:bg-white text-white dark:text-base font-black text-lg hover:bg-primary dark:hover:bg-primary hover:text-white transition-colors uppercase tracking-widest rounded-none">
+                    {t('new.cta.btn')}
+                </a>
+            </div>
+            
+            <!-- Tech decorations -->
+            <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary"></div>
+            <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-secondary"></div>
+        </div>
+    </div>
+</section>

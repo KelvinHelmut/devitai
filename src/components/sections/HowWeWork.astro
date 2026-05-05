@@ -1,0 +1,50 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const steps = [
+    { num: "01", title: t('new.how.step1.title'), desc: t('new.how.step1.desc') },
+    { num: "02", title: t('new.how.step2.title'), desc: t('new.how.step2.desc') },
+    { num: "03", title: t('new.how.step3.title'), desc: t('new.how.step3.desc') },
+    { num: "04", title: t('new.how.step4.title'), desc: t('new.how.step4.desc') },
+    { num: "05", title: t('new.how.step5.title'), desc: t('new.how.step5.desc') },
+];
+---
+
+<section class="py-32 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="mb-20 text-center reveal">
+            <h2 class="text-xs font-mono text-secondary uppercase tracking-[0.3em] mb-4">{t('new.how.badge')}</h2>
+            <h3 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white">{t('new.how.title')}</h3>
+        </div>
+
+        <div class="relative max-w-4xl mx-auto">
+            <!-- Connecting Line -->
+            <div class="absolute top-0 bottom-0 left-[27px] md:left-1/2 w-px bg-slate-900/10 dark:bg-white/10 -translate-x-1/2 hidden sm:block"></div>
+
+            <div class="space-y-16">
+                {steps.map((step, index) => (
+                    <div class={`relative flex flex-col sm:flex-row items-start ${index % 2 === 0 ? 'sm:flex-row-reverse' : ''} gap-8 group reveal reveal-delay-${(index % 3) + 1}`}>
+                        
+                        <!-- Center Node -->
+                        <div class="absolute left-0 md:left-1/2 -translate-x-1/2 w-14 h-14 bg-slate-50 dark:bg-base border border-slate-900/20 dark:border-white/20 flex items-center justify-center font-mono text-primary text-sm z-10 group-hover:border-primary group-hover:shadow-[0_0_20px_rgba(0,245,255,0.2)] transition-all duration-500 hidden sm:flex">
+                            {step.num}
+                        </div>
+
+                        <!-- Content Card -->
+                        <div class={`w-full sm:w-1/2 ${index % 2 === 0 ? 'sm:pl-16' : 'sm:pr-16'}`}>
+                            <div class="p-8 border border-slate-900/5 dark:border-white/5 bg-slate-900/5 dark:bg-white/5 backdrop-blur-md group-hover:bg-slate-900/10 dark:group-hover:bg-white/10 transition-colors duration-500">
+                                <span class="text-primary font-mono text-sm mb-2 block sm:hidden">{step.num}</span>
+                                <h4 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">{step.title}</h4>
+                                <p class="text-slate-600 dark:text-slate-400 leading-relaxed font-light">{step.desc}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>

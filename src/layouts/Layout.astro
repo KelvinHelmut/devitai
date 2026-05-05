@@ -8,7 +8,7 @@ import Logo from "../components/common/Logo.astro";
 import ThemeSwitcher from "../components/common/ThemeSwitcher.astro";
 import LanguageSwitcher from "../components/common/LanguageSwitcher.astro";
 import ScrollToTop from "../components/common/ScrollToTop.astro";
-import { Menu, X, Mail, MessageSquare } from "@lucide/astro";
+import { Menu, X, Mail } from "@lucide/astro";
 import "../styles/global.css";
 
 interface Props {
@@ -138,21 +138,25 @@ const translatePath = useTranslatedPath(lang);
         </noscript>
     </head>
     <body
-        class="bg-slate-50 dark:bg-[#020617] text-slate-900 dark:text-slate-100 font-sans selection:bg-blue-500/20 selection:text-blue-500 grain"
+        class="bg-slate-50 dark:bg-base text-slate-900 dark:text-slate-100 font-sans selection:bg-primary/30 selection:text-primary grain cursor-none"
     >
+        <!-- Custom Cursor -->
+        <div id="cursor-dot" class="fixed w-2 h-2 bg-slate-900 dark:bg-primary rounded-full pointer-events-none z-[9999] dark:mix-blend-screen -translate-x-1/2 -translate-y-1/2 transition-transform duration-100 ease-out"></div>
+        <div id="cursor-glow" class="fixed w-16 h-16 bg-slate-900/10 dark:bg-primary/20 blur-xl rounded-full pointer-events-none z-[9998] dark:mix-blend-screen -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 ease-out"></div>
+
         <!-- Premium Grid Background -->
         <div
-            class="fixed inset-0 z-[-1] animate-grid opacity-30 dark:opacity-20 pointer-events-none"
+            class="fixed inset-0 z-[-1] animate-grid opacity-30 dark:opacity-40 pointer-events-none"
         >
         </div>
 
         <!-- Background Orbs -->
         <div
-            class="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none animate-float"
+            class="fixed top-[-10%] left-[-10%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none animate-float dark:mix-blend-screen"
         >
         </div>
         <div
-            class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none animate-float"
+            class="fixed bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-secondary/10 rounded-full blur-[120px] pointer-events-none animate-float dark:mix-blend-screen"
             style="animation-delay: -3s;"
         >
         </div>
@@ -181,13 +185,13 @@ const translatePath = useTranslatedPath(lang);
                         >{t("nav.services")}</a
                     >
                     <a
-                        href="#stack"
+                        href="#work"
                         class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-widest text-[11px]"
-                        >{t("nav.stack")}</a
+                        >{t("nav.work")}</a
                     >
                     <a
                         href="#contact"
-                        class="px-6 py-2.5 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:scale-105 transition-all shadow-lg shadow-black/10 dark:shadow-white/5"
+                        class="px-6 py-2.5 rounded-none border border-slate-900 dark:border-white bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-transparent dark:hover:bg-transparent hover:text-slate-900 dark:hover:text-white transition-all shadow-lg shadow-black/10 dark:shadow-white/5"
                         >{t("nav.contact")}</a
                     >
                 </div>
@@ -200,7 +204,7 @@ const translatePath = useTranslatedPath(lang);
                     <!-- Mobile Menu Toggle -->
                     <button
                         id="mobile-menu-toggle"
-                        class="md:hidden p-2.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:scale-105 transition-all active:scale-95"
+                        class="md:hidden p-2.5 rounded-none border border-slate-900 dark:border-white bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-transparent dark:hover:bg-transparent hover:text-slate-900 dark:hover:text-white transition-all active:scale-95"
                         aria-label="Toggle menu"
                     >
                         <div id="menu-icon">
@@ -222,10 +226,10 @@ const translatePath = useTranslatedPath(lang);
             <!-- Close button inside overlay -->
             <button
                 id="mobile-menu-close"
-                class="absolute top-6 right-6 p-4 rounded-2xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xl"
+                class="absolute top-6 right-6 p-4 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors hover:rotate-90 duration-300"
                 aria-label="Close menu"
             >
-                <X size={24} />
+                <X size={32} stroke-width={1.5} />
             </button>
 
             <div class="flex flex-col items-center gap-10 w-full mt-12">
@@ -241,13 +245,13 @@ const translatePath = useTranslatedPath(lang);
                     >{t("nav.services")}</a
                 >
                 <a
-                    href="#stack"
+                    href="#work"
                     class="mobile-nav-link text-4xl font-black text-slate-900 dark:text-white uppercase tracking-tighter"
-                    >{t("nav.stack")}</a
+                    >{t("nav.work")}</a
                 >
                 <a
                     href="#contact"
-                    class="mobile-nav-link px-12 py-5 rounded-[2.5rem] bg-blue-600 text-white text-2xl font-black shadow-2xl shadow-blue-500/20 text-center w-full max-w-[300px]"
+                    class="mobile-nav-link px-12 py-5 rounded-none border border-primary bg-primary text-base font-black shadow-2xl shadow-primary/20 hover:bg-transparent hover:text-primary transition-colors text-center w-full max-w-[300px]"
                     >{t("nav.contact")}</a
                 >
             </div>
@@ -352,14 +356,6 @@ const translatePath = useTranslatedPath(lang);
                         <Mail size={14} />
                         Email
                     </a>
-                    <a
-                        href="https://wa.me/51954733536"
-                        target="_blank"
-                        class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-widest flex items-center gap-2"
-                    >
-                        <MessageSquare size={14} />
-                        WhatsApp</a
-                    >
                 </div>
                 <div class="text-center md:text-right">
                     <p
@@ -427,6 +423,51 @@ const translatePath = useTranslatedPath(lang);
         </style>
 
         <script is:inline>
+            // Custom Cursor Logic
+            const cursorDot = document.getElementById("cursor-dot");
+            const cursorGlow = document.getElementById("cursor-glow");
+
+            if (window.matchMedia("(pointer: fine)").matches) {
+                document.addEventListener("mousemove", (e) => {
+                    requestAnimationFrame(() => {
+                        cursorDot.style.left = `${e.clientX}px`;
+                        cursorDot.style.top = `${e.clientY}px`;
+                        cursorGlow.style.left = `${e.clientX}px`;
+                        cursorGlow.style.top = `${e.clientY}px`;
+                    });
+                });
+
+                document.addEventListener("mousedown", () => {
+                    cursorDot.style.transform = "translate(-50%, -50%) scale(0.5)";
+                    cursorGlow.style.transform = "translate(-50%, -50%) scale(1.5)";
+                });
+
+                document.addEventListener("mouseup", () => {
+                    cursorDot.style.transform = "translate(-50%, -50%) scale(1)";
+                    cursorGlow.style.transform = "translate(-50%, -50%) scale(1)";
+                });
+
+                // Add hover effect for links and buttons
+                const interactiveElements = document.querySelectorAll('a, button, input, select, textarea');
+                interactiveElements.forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        cursorDot.style.transform = "translate(-50%, -50%) scale(1.5)";
+                        cursorDot.style.backgroundColor = "transparent";
+                        cursorDot.style.border = "1px solid var(--color-primary)";
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        cursorDot.style.transform = "translate(-50%, -50%) scale(1)";
+                        cursorDot.style.backgroundColor = "var(--color-primary)";
+                        cursorDot.style.border = "none";
+                    });
+                });
+            } else {
+                // Hide cursor on touch devices
+                cursorDot.style.display = 'none';
+                cursorGlow.style.display = 'none';
+                document.body.classList.remove('cursor-none');
+            }
+
             // Scroll Reveal Observer
             const observerOptions = {
                 threshold: 0.1,

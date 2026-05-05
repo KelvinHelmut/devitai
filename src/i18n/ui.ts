@@ -9,7 +9,7 @@ export const ui = {
     es: {
         'nav.home': 'Inicio',
         'nav.services': 'Servicios',
-        'nav.stack': 'Tech Stack',
+        'nav.work': 'Proyectos',
         'nav.contact': 'Contacto',
         'nav.theme': 'Tema',
         'site.title': 'Devitai | Forge de Software Boutique impulsada por IA',
@@ -53,11 +53,74 @@ export const ui = {
         'contact.form.placeholder': 'Email o WhatsApp',
         'contact.form.submit': 'Enviar Datos',
         'contact.form.success': '¡Recibido! Nuestro sistema de automatización te contactará pronto.',
+        
+        // Refactored Design Strings
+        'new.hero.badge': 'SISTEMAS EN LÍNEA',
+        'new.hero.title': 'Inteligencia,',
+        'new.hero.title2': 'Diseñada.',
+        'new.hero.desc': 'Devitai se especializa en desarrollo de software a medida y soluciones de inteligencia artificial. Transformamos desafíos complejos en sistemas elegantes y de alto rendimiento.',
+        'new.hero.cta1': 'Iniciar Proyecto',
+        'new.hero.cta2': 'Ver Trabajo',
+        
+        'new.services.badge': 'Nuestra Experiencia',
+        'new.services.title': 'Soluciones de Ingeniería.',
+        
+        'new.services.serv1.title': 'Desarrollo de Software',
+        'new.services.serv1.desc': 'Arquitecturas escalables y código limpio para aplicaciones críticas.',
+        'new.services.serv2.title': 'Soluciones de IA',
+        'new.services.serv2.desc': 'Integración fluida de grandes modelos de lenguaje en flujos de trabajo empresariales existentes.',
+        'new.services.serv3.title': 'Arquitectura Cloud',
+        'new.services.serv3.desc': 'Despliegues resilientes y optimizados en servicios en la nube.',
+        
+        'new.how.badge': 'Proceso',
+        'new.how.title': 'Cómo Trabajamos.',
+        
+        'new.work.badge': 'Portafolio',
+        'new.work.title': 'Trabajo Destacado.',
+        'new.work.cta': 'Ver Todos los Proyectos',
+        'new.work.view_project': 'Ver detalles del proyecto',
+        
+        'new.work.proj1.title': 'Gespro',
+        'new.work.proj1.category': 'Project Management',
+        'new.work.proj1.metric': 'Control en Tiempo Real',
+        'new.work.proj1.desc': 'Sistema de gestión de proyectos inmobiliarios diseñado para optimizar el seguimiento, control y administración de desarrollos inmobiliarios en tiempo real.',
+        
+        'new.work.proj2.title': 'Gescon',
+        'new.work.proj2.category': 'ERP Construction',
+        'new.work.proj2.metric': 'Operaciones Integradas',
+        'new.work.proj2.desc': 'Sistema de gestión empresarial (ERP) especializado para empresas del sector construcción e inmobiliaria, integrando procesos operativos y administrativos.',
+        
+        'new.about.badge': 'Filosofía',
+        'new.about.title1': 'No solo escribimos código.',
+        'new.about.title2': 'Diseñamos resultados.',
+        'new.about.desc': 'En Devitai, creemos que el software debe ser un activo, no un pasivo. Combinamos las prácticas de ingeniería rigurosas de las empresas top con la agilidad de una agencia boutique.',
+        
+        'new.how.step1.title': 'Descubrimiento',
+        'new.how.step1.desc': 'Entendiendo tus restricciones, objetivos y requerimientos técnicos.',
+        'new.how.step2.title': 'Arquitectura',
+        'new.how.step2.desc': 'Diseñando sistemas escalables y a prueba de futuro.',
+        'new.how.step3.title': 'Desarrollo',
+        'new.how.step3.desc': 'Ejecución quirúrgica con frameworks modernos.',
+        'new.how.step4.title': 'Despliegue',
+        'new.how.step4.desc': 'Despliegues sin tiempo de inactividad mediante CI/CD robusto.',
+        'new.how.step5.title': 'Escala',
+        'new.how.step5.desc': 'Monitoreando y optimizando la infraestructura a medida que creces.',
+        
+        'new.about.diff1.title': 'Cero Deuda Técnica',
+        'new.about.diff1.desc': 'Escribimos código limpio y guiado por pruebas. Sin atajos.',
+        'new.about.diff2.title': 'Velocidad',
+        'new.about.diff2.desc': 'Iteraciones ágiles que entregan software usable en semanas, no meses.',
+        'new.about.diff3.title': 'Experiencia Profunda',
+        'new.about.diff3.desc': 'Ingenieros senior enfocados en arquitecturas modernas y escalables.',
+        
+        'new.cta.title': '¿Listo para construir con IA?',
+        'new.cta.desc': 'Discutamos tus desafíos técnicos y diseñemos una arquitectura que te diferencie.',
+        'new.cta.btn': 'Contáctanos',
     },
     en: {
         'nav.home': 'Home',
         'nav.services': 'Services',
-        'nav.stack': 'Tech Stack',
+        'nav.work': 'Work',
         'nav.contact': 'Contact',
         'nav.theme': 'Theme',
         'site.title': 'Devitai | AI-Driven Boutique Software Forge',
@@ -101,5 +164,68 @@ export const ui = {
         'contact.form.placeholder': 'Email or WhatsApp',
         'contact.form.submit': 'Submit Data',
         'contact.form.success': 'Received! Our automation system will reach out soon.',
+
+        // Refactored Design Strings
+        'new.hero.badge': 'SYSTEMS ONLINE',
+        'new.hero.title': 'Intelligence,',
+        'new.hero.title2': 'Engineered.',
+        'new.hero.desc': 'Devitai specializes in custom software development and artificial intelligence solutions. We transform complex challenges into elegant, high-performance systems.',
+        'new.hero.cta1': 'Start a Project',
+        'new.hero.cta2': 'See Our Work',
+        
+        'new.services.badge': 'Our Expertise',
+        'new.services.title': 'Engineered Solutions.',
+        
+        'new.services.serv1.title': 'Software Development',
+        'new.services.serv1.desc': 'Scalable architectures and clean code for mission-critical applications.',
+        'new.services.serv2.title': 'AI Solutions',
+        'new.services.serv2.desc': 'Seamless embedding of large language models into existing enterprise workflows.',
+        'new.services.serv3.title': 'Cloud Architecture',
+        'new.services.serv3.desc': 'Resilient and optimized deployments on cloud services.',
+        
+        'new.how.badge': 'Process',
+        'new.how.title': 'How We Work.',
+        
+        'new.work.badge': 'Portfolio',
+        'new.work.title': 'Featured Work.',
+        'new.work.cta': 'View All Projects',
+        'new.work.view_project': 'View project details',
+        
+        'new.work.proj1.title': 'Gespro',
+        'new.work.proj1.category': 'Project Management',
+        'new.work.proj1.metric': 'Real-Time Control',
+        'new.work.proj1.desc': 'Real estate project management system designed to optimize the tracking, control, and administration of real estate developments in real time.',
+        
+        'new.work.proj2.title': 'Gescon',
+        'new.work.proj2.category': 'ERP Construction',
+        'new.work.proj2.metric': 'Integrated Operations',
+        'new.work.proj2.desc': 'Enterprise Resource Planning (ERP) system specialized for construction and real estate companies, integrating operational and administrative processes.',
+        
+        'new.about.badge': 'Philosophy',
+        'new.about.title1': "We don't just write code.",
+        'new.about.title2': 'We engineer outcomes.',
+        'new.about.desc': 'At Devitai, we believe that software should be an asset, not a liability. We combine the rigorous engineering practices of top-tier tech companies with the agility of a boutique agency.',
+        
+        'new.how.step1.title': 'Discovery',
+        'new.how.step1.desc': 'Understanding your constraints, goals, and technical requirements.',
+        'new.how.step2.title': 'Architecture',
+        'new.how.step2.desc': 'Designing scalable, future-proof systems.',
+        'new.how.step3.title': 'Development',
+        'new.how.step3.desc': 'Surgical execution with modern frameworks.',
+        'new.how.step4.title': 'Deploy',
+        'new.how.step4.desc': 'Zero-downtime deployments via robust CI/CD pipelines.',
+        'new.how.step5.title': 'Scale',
+        'new.how.step5.desc': 'Monitoring and optimizing infrastructure as you grow.',
+        
+        'new.about.diff1.title': 'Zero Technical Debt',
+        'new.about.diff1.desc': 'We write clean, test-driven code. No shortcuts. No spaghetti.',
+        'new.about.diff2.title': 'Velocity',
+        'new.about.diff2.desc': 'Agile iterations that deliver usable software in weeks, not months.',
+        'new.about.diff3.title': 'Deep Expertise',
+        'new.about.diff3.desc': 'Senior engineers focused on modern, scalable architectures.',
+        
+        'new.cta.title': 'Ready to build with AI?',
+        'new.cta.desc': 'Let\'s discuss your technical challenges and architect a solution that sets you apart.',
+        'new.cta.btn': 'Contact Us',
     },
 } as const;

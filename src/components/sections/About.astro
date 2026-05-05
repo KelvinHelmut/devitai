@@ -1,0 +1,39 @@
+---
+import { ShieldCheck, Zap, Terminal } from "@lucide/astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const differentiators = [
+    { title: t('new.about.diff1.title'), desc: t('new.about.diff1.desc'), icon: ShieldCheck },
+    { title: t('new.about.diff2.title'), desc: t('new.about.diff2.desc'), icon: Zap },
+    { title: t('new.about.diff3.title'), desc: t('new.about.diff3.desc'), icon: Terminal }
+];
+---
+
+<section class="py-32 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+            <h2 class="text-xs font-mono text-secondary uppercase tracking-[0.3em] mb-4">{t('new.about.badge')}</h2>
+            <h3 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-8 leading-[1.1]">{t('new.about.title1')}<br/>{t('new.about.title2')}</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-lg font-light leading-relaxed mb-8">
+                {t('new.about.desc')}
+            </p>
+        </div>
+        
+        <div class="space-y-8">
+            {differentiators.map((diff, i) => (
+                <div class={`flex items-start gap-6 reveal reveal-delay-${i+1}`}>
+                    <div class="flex-shrink-0 w-12 h-12 bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 flex items-center justify-center text-primary">
+                        <diff.icon class="w-6 h-6" />
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">{diff.title}</h4>
+                        <p class="text-slate-600 dark:text-slate-400 font-light">{diff.desc}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
