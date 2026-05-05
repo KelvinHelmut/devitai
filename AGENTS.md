@@ -19,6 +19,11 @@
 - `src/layouts/` - Page layouts
 - `astro.config.mjs` - Astro and i18n configuration
 
+## Design System & UI
+- **Strict Guidelines**: ALWAYS read `DESIGN.md` before creating or modifying any UI component.
+- **Aesthetic**: Adhere strictly to the "Retro-futurist Brutalist" aesthetic described in the design file. Do not invent new colors, border radiuses (`rounded-none` only), or shadows.
+- **Assets**: Use `astro:assets` and `sharp` for all images. No raw `<img src="url">` tags.
+
 ## Development Notes
 - No linting or typechecking scripts defined in package.json
 - Build output goes to `./dist/`
